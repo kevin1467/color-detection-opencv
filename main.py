@@ -5,7 +5,7 @@ from util import get_limits
 
 
 yellow = [0, 255, 255]  # yellow in BGR colorspace
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
 
@@ -23,6 +23,11 @@ while True:
         x1, y1, x2, y2 = bbox
 
         frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+        if((x2+x1)/2 > 170):
+            print((x2+x1)/2 - 170, " PIXELS TO THE RIGHT")
+        else:
+            print(170 - (x2+x1)/2, " PIXELS TO THE LEFT") 
+        
 
     cv2.imshow('frame', frame)
 
@@ -32,4 +37,3 @@ while True:
 cap.release()
 
 cv2.destroyAllWindows()
-
