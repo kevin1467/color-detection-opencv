@@ -4,7 +4,7 @@ from PIL import Image
 from util import get_limits
 
 
-yellow = [0, 255, 255]  # yellow in BGR colorspace
+yellow = [0, 255, 0]  #BGR colorspace
 cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
